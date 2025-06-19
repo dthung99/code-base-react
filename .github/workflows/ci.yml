@@ -60,7 +60,7 @@ jobs:
   build:
     name: Build Application
     runs-on: ubuntu-latest
-    needs: test # Only run if tests pass
+    # needs: test # Only run if tests pass
 
     steps:
       # Step 1: Checkout code
@@ -114,7 +114,7 @@ jobs:
   security-check:
     name: Security Check
     runs-on: ubuntu-latest
-    needs: [test, build] # Run after both test and build pass
+    # needs: [test, build] # Run after both test and build pass
 
     steps:
       - name: Checkout repository

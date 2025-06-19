@@ -7,12 +7,12 @@ CYGWIN* | MINGW* | MSYS* | Windows*)
     # Windows-specific commands if needed
     echo "Running pre-commit checks for Windows..."
     echo "..............."
-    yarn lint-staged
+    npm run lint
     ;;
 *)
     # Linux/macOS commands
     echo "Running pre-commit checks for Linux/macOS..."
     echo "..............."
-    yarn lint-staged
+    npm run lint
     ;;
 esac
