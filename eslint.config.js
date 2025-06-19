@@ -32,7 +32,11 @@ export default tseslint.config(
       prettier: prettier,
       import: importPlugin,
     },
-
+    settings: {
+      react: {
+        version: "detect", // Automatically detect React version
+      },
+    },
     rules: {
       "prettier/prettier": ["error", { endOfLine: "auto" }], // Configure Prettier
       "@typescript-eslint/prefer-nullish-coalescing": "error",
