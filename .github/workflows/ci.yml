@@ -170,21 +170,7 @@ jobs:
           aws s3 cp dist/index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html --cache-control="no-cache, no-store, must-revalidate"
 
       - name: Display deployment info
-        run: |
-          echo "🚀 Deployment completed successfully!"
-          echo "📍 S3 Bucket: ${{ secrets.S3_BUCKET_NAME }}"
-
-          # Get the actual website endpoint from AWS
-          WEBSITE_ENDPOINT=$(aws s3api get-bucket-website --bucket ${{ secrets.S3_BUCKET_NAME }} --query 'WebsiteConfiguration' --output text 2>/dev/null || echo "Not configured")
-
-          if [ "$WEBSITE_ENDPOINT" != "Not configured" ]; then
-            echo "🌐 Website URL: http://${{ secrets.S3_BUCKET_NAME }}.s3-website-${{ secrets.AWS_REGION }}.amazonaws.com"
-          else
-            echo "⚠️  Static website hosting not enabled on this bucket"
-            echo "🌐 Possible URLs:"
-            echo "   Format 1: http://${{ secrets.S3_BUCKET_NAME }}.s3-website-${{ secrets.AWS_REGION }}.amazonaws.com"
-            echo "   Format 2: http://${{ secrets.S3_BUCKET_NAME }}.s3-website.${{ secrets.AWS_REGION }}.amazonaws.com"
-          fi
+        run: echo http://doctor-note-fe-test.s3-website-ap-southeast-1.amazonaws.com/
 
       # - name: Invalidate CloudFront (optional)
       #   run: |
