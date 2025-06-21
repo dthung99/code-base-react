@@ -1,6 +1,6 @@
 import { Box } from "@mui/system";
 import { type ReactElement } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 import Header from "./components/layout/Header";
 import Sidebar from "./components/layout/Sidebar";
@@ -61,6 +61,10 @@ export default function App(): ReactElement {
             }}
           >
             <Routes>
+              <Route
+                path={PATHS.root}
+                element={<Navigate to={PATHS.home} replace />}
+              />
               <Route path={PATHS.home} element={<Home />} />
               <Route path={PATHS.history} element={<History />} />
               <Route path={PATHS.billing} element={<Billing />} />
